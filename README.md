@@ -1,7 +1,7 @@
 ## Javascript concepts
 - set [X]
-- null [ ]
-- map [ ]
+- null [X]
+- map [X]
 - filter [ ]
 - loops [ ]
 - String [ ]

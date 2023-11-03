@@ -11,4 +11,4 @@ const person = {
   
 person.age = null; // Remove the age property
 console.log(person);
-console.log(person.age);
+console.log(person.age); 
