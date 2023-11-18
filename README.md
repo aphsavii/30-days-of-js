@@ -22,7 +22,7 @@
 - composition [ ]
 - closures [X]
 - lexical scoping [X]
-- Number [ ]
+- Number [X]
 - Strict mode [ ]
 - this keyword[ ]
 - variables [ ]
