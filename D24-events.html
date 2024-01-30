@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      overflow: hidden;
+      padding: 0 0;
+      margin: 0 0;
+    }
+    #parent {
+      background: #212121;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .child {
+      background: red;
+      height: 300px;
+      width: 300px;
+    }
+  </style>
+  <body>
+    <div id="parent">
+      <div class="child" id="child1"></div>
+      <div class="child" id="child2"></div>
+      <div class="child" id="child3"></div>
+    </div>
+  </body>
+  <script>
+    //   <!-- Event propagation  -->
+    // Event Bubbling and Capturing in a nutshell
+    // Bubbling and capturing is nothing just the propagating order of the events
+    // Let's just assume we have click event listeners on both the parent and the child now what will happen if we click on the child, it means we also clicked the parent as the parent is containing the child.
+    // What will be the propagating order??
+    // The answer is by default its bubbling i.e. like bubble it will move from  bottom to up i.e. the child will be propagated first and then the parent
+    // Capturing is quite just the opposite of bubbling
+    // True --- capturing
+    // False --- Bubbling //Default behaviour
+
+    // we also have a method stopPropagation to disable further bubllign or captiring
+
+    let box1 = document.getElementById("child1").addEventListener(
+      "mouseover",
+      (e) => {
+        console.log(e);
+        console.log(e.target);
+        e.target.style.backgroundColor = "white";
+      },
+      false
+    ); // The third argument of eventListener takes true false which decides bubbling will happen or capturing
+
+    let parent = document
+      .getElementById("parent")
+      .addEventListener("click", (e) => {
+        console.log("parent is clicked");
+        e.stopPropagation();
+      },true);
+    let box2 = document.getElementById("child2").addEventListener(
+      "click",
+      (e) => {
+        console.log("box 2 clicked");
+      },
+      true
+    );
+  </script>
+</html>
